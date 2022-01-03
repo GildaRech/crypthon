@@ -389,6 +389,12 @@ elif len(sys.argv)==2 and sys.argv[1] not in params and sys.argv[1].endswith(".p
 elif len(sys.argv)==2 and sys.argv[1]=="-h":
      print(help)
      sys.exit()
+elif len(sys.argv)==4 and sys.argv[1]=="-keygen":
+    with open(sys.argv[2], "r") as f:
+        length=len(f.read())
+        f.close()
+    print(pyLoc(sys.argv[2]).genKey(sys.argv[3], length))
+    sys.exit()
 
 if sys.argv[1] in params:
     if len(sys.argv)==2 and sys.argv[1]=="-h":
